@@ -9,7 +9,7 @@ const Header = () => {
     return (
         <StyledHeader>
             <Logo>
-                <img src='./netflix-logo.png' alt='logo' />
+                <img src='./images/netflix-logo.png' alt='logo' />
             </Logo>
             <Button onClick={handleSignInOnClick}>Sign In</Button>
         </StyledHeader>
