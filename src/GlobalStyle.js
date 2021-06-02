@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
         outline: none;
         color: white;
         font-size: .9rem;
+        cursor: pointer;
 
         @media (min-width: 600px) {
             font-size: 1rem;
