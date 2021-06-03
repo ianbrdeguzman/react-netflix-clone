@@ -19,7 +19,7 @@ const Feature = ({ title, text, image, direction, video, videoSize }) => {
                     <img src={image} alt='feature' />
                     <VideoContainer size={videoSize}>
                         {video && (
-                            <video autoPlay muted>
+                            <video autoPlay muted loop>
                                 <source src={video} type='video/mp4' />
                             </video>
                         )}

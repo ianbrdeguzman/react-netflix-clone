@@ -28,6 +28,9 @@ const GlobalStyle = createGlobalStyle`
             font-size: 1rem;
         }
     }
+    a {
+        color: inherit;
+    }
 `;
 
 export default GlobalStyle;
