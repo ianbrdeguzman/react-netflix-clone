@@ -23,13 +23,13 @@ export const StyledForm = styled.form`
             font-size: 14px;
             padding: 10px;
             outline: none;
-            border: 1px solid transparent;
+            border: 1px solid gray;
             @media (min-width: 600px) {
                 font-size: 1rem;
                 width: 450px;
             }
             @media (min-width: 900px) {
-                height: 52px;
+                height: 70px;
             }
         }
         span {
@@ -59,6 +59,7 @@ export const Button = styled.button`
     }
     @media (min-width: 900px) {
         font-size: 26px;
+        height: 70px;
         border-radius: 0.1rem;
     }
 `;
