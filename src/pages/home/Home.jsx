@@ -13,7 +13,7 @@ const Home = () => {
             {data.map((feature, i) => {
                 return (
                     <div key={i}>
-                        <Feature key={feature.id} {...feature} />
+                        <Feature {...feature} />
                         <Border />
                     </div>
                 );

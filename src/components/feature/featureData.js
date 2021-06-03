@@ -13,6 +13,10 @@ export const data = [
         text: 'Save your favorites easily and always have something to watch.',
         image: '/images/feature-2.jpg',
         direction: 'left',
+        boxshot: {
+            image: '/images/boxshot.png',
+            gif: '/images/download-icon.gif',
+        },
     },
     {
         id: 3,
