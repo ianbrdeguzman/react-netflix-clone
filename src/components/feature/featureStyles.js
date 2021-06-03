@@ -29,7 +29,7 @@ export const InfoContainer = styled.div`
         margin-left: ${(props) => (props.direction === 'left' ? '4rem' : null)};
         text-align: left;
     }
-    & h2 {
+    h2 {
         font-size: 26px;
         @media (min-width: 600px) {
             font-size: 40px;
@@ -38,7 +38,7 @@ export const InfoContainer = styled.div`
             font-size: 50px;
         }
     }
-    & p {
+    p {
         font-size: 18px;
         @media (min-width: 600px) {
             font-size: 20px;
@@ -54,7 +54,7 @@ export const ImageContainer = styled.div`
     max-width: 530px;
     position: relative;
     overflow-x: hidden;
-    & img {
+    img {
         width: 100%;
         height: 100%;
         object-fit: contain;
@@ -68,7 +68,7 @@ export const VideoContainer = styled.div`
     top: ${(props) => (props.size === 'small' ? '11%' : '20.5%')};
     left: ${(props) => (props.size === 'small' ? '19%' : '13.5%')};
     z-index: -1;
-    & video {
+    video {
         width: 100%;
     }
 `;

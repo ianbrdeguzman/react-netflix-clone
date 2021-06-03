@@ -1,9 +1,10 @@
 import React from 'react';
 import Hero from '../../components/hero/Hero';
 import Feature from '../../components/feature/Feature';
+import Accordion from '../../components/accordion/Accordion';
+import Footer from '../../components/footer/Footer';
 import { Border } from './homeStyles';
 import { data } from '../../components/feature/featureData';
-import Footer from '../../components/footer/Footer';
 
 const Home = () => {
     return (
@@ -18,6 +19,8 @@ const Home = () => {
                     </div>
                 );
             })}
+            <Accordion />
+            <Border />
             <Footer />
         </div>
     );

@@ -30,21 +30,19 @@ export const HeroContent = styled.div`
         width: 90%;
         max-width: 950px;
         text-align: center;
-        & p {
-            padding: 1rem 0;
+        p:first-child {
+            padding: 1rem 0 0 0;
             font-weight: 600;
+            margin-bottom: 0;
         }
 
         @media (min-width: 600px) {
             padding: 0 2rem;
-            & p:nth-child(3) {
-                font-size: 1.2rem;
-            }
         }
         @media (min-width: 900px) {
             padding: 0 4rem;
         }
-        & h1 {
+        h1 {
             font-size: 28px;
 
             @media (min-width: 600px) {
