@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 export const FormContent = styled.div`
+    text-align: center;
     p {
         font-size: 18px;
+        margin-bottom: 1rem;
+        @media (min-width: 900px) {
+            font-size: 1.2rem;
+        }
     }
 `;
 
@@ -19,6 +24,7 @@ export const StyledForm = styled.form`
         position: relative;
         input {
             width: 90vw;
+            height: 48px;
             max-width: 500px;
             font-size: 14px;
             padding: 10px;
@@ -27,8 +33,9 @@ export const StyledForm = styled.form`
             @media (min-width: 600px) {
                 font-size: 1rem;
                 width: 450px;
+                height: 60px;
             }
-            @media (min-width: 900px) {
+            @media (min-width: 1440px) {
                 height: 70px;
             }
         }
