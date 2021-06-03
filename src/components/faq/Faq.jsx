@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Question from '../question/Question';
 import Form from '../form/Form';
-import { data } from './accordionData';
-import { StyledSection, AccordionContainer } from './accordionStyles';
+import { data } from './faqData';
+import { StyledSection, FaqContainer } from './faqStyles';
 
-const Accordion = () => {
+const Faq = () => {
     const [selected, setSelected] = useState(null);
 
     const toggleOnClick = (id) => {
@@ -16,7 +16,7 @@ const Accordion = () => {
 
     return (
         <StyledSection>
-            <AccordionContainer>
+            <FaqContainer>
                 <h2>Frequently Asked Questions</h2>
                 {data.map((item) => {
                     return (
@@ -28,10 +28,10 @@ const Accordion = () => {
                         />
                     );
                 })}
-            </AccordionContainer>
+            </FaqContainer>
             <Form />
         </StyledSection>
     );
 };
 
-export default Accordion;
+export default Faq;

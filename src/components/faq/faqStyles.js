@@ -8,7 +8,7 @@ export const StyledSection = styled.section`
     padding: 50px 0;
 `;
 
-export const AccordionContainer = styled.div`
+export const FaqContainer = styled.div`
     text-align: center;
     & > h2 {
         font-size: 26px;
