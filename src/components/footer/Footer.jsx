@@ -2,9 +2,9 @@ import React from 'react';
 import { data } from './footerData';
 import { StyledFooter, FooterContent, LinksContainer } from './footerStyles';
 
-const Footer = () => {
+const Footer = ({ signin }) => {
     return (
-        <StyledFooter>
+        <StyledFooter signin={signin}>
             <FooterContent>
                 <h3>
                     Questions? Call{' '}

@@ -72,3 +72,34 @@ export const VideoContainer = styled.div`
         width: 100%;
     }
 `;
+
+export const Boxshot = styled.div`
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 25%;
+    padding: 1rem;
+    border: 2px solid #222222;
+    border-radius: 1rem;
+    background-color: #000000;
+    div:nth-child(1) {
+        flex: 0.2;
+    }
+    div:nth-child(2) {
+        flex: 0.8;
+        padding: 0 1rem;
+        p:first-child {
+            font-weight: bold;
+        }
+        p:last-child {
+            color: #0071eb;
+        }
+    }
+    div:nth-child(3) {
+        flex: 0.2;
+    }
+`;

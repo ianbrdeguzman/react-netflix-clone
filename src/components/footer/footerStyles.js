@@ -2,13 +2,15 @@ import styled from 'styled-components';
 
 export const StyledFooter = styled.footer`
     color: #757575;
+    background-color: ${(props) =>
+        props.signin ? 'rgba(0,0,0,0.7)' : 'transparent'};
 `;
 
 export const FooterContent = styled.div`
     width: 90vw;
     max-width: 1000px;
     margin: 50px auto 0 auto;
-    padding: 0 1rem 30px 1rem;
+    padding: 1rem 1rem 30px 1rem;
     h3 {
         font-weight: normal;
         font-size: 1rem;
