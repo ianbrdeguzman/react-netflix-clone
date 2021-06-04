@@ -1,15 +1,21 @@
 import React from 'react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
-import { StyledSection, SignInContainer, Form, Border } from './signInStyles';
+import {
+    StyledSection,
+    RegisterContainer,
+    Form,
+    Border,
+} from './registerStyles';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
-const SignIn = () => {
+const Register = () => {
     const {
         register,
         handleSubmit,
         formState: { errors },
+        watch,
     } = useForm();
 
     const handleSubmitOnClick = (data) => {
@@ -20,9 +26,23 @@ const SignIn = () => {
     return (
         <StyledSection>
             <Header login />
-            <SignInContainer>
+            <RegisterContainer>
                 <Form onSubmit={handleSubmit(handleSubmitOnClick)}>
-                    <h1>Sign In</h1>
+                    <h1>Create an account</h1>
+                    <input
+                        type='text'
+                        {...register('name', {
+                            required: 'Please enter your name.',
+                            minLength: {
+                                value: 4,
+                                message:
+                                    'Your name must contain atleast 4 characters.',
+                            },
+                        })}
+                        id='name'
+                        placeholder='Name'
+                    />
+                    {errors.name && <span>{errors.name.message}</span>}
                     <input
                         type='text'
                         {...register('email', {
@@ -56,20 +76,33 @@ const SignIn = () => {
                         placeholder='Password'
                     />
                     {errors.password && <span>{errors.password.message}</span>}
-                    <button type='submit'>Sign In</button>
+                    <input
+                        type='password'
+                        {...register('confirmPassword', {
+                            validate: (value) =>
+                                value === watch('password') ||
+                                'Password does not match.',
+                        })}
+                        id='confirmPassword'
+                        placeholder='Confirm Password'
+                    />
+                    {errors.confirmPassword && (
+                        <span>{errors.confirmPassword.message}</span>
+                    )}
+                    <button type='submit'>Create Account</button>
                     <p>
-                        New to Netflix? <Link to='/register'>Sign up now.</Link>
+                        Already have an account? <Link to='/login'>Login.</Link>
                     </p>
                     <p>
                         This page is protected by Google reCAPTCHA to ensure
                         you're not a bot. <span>Learn more.</span>
                     </p>
                 </Form>
-            </SignInContainer>
+            </RegisterContainer>
             <Border />
             <Footer signin />
         </StyledSection>
     );
 };
 
-export default SignIn;
+export default Register;

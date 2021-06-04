@@ -12,7 +12,7 @@ export const StyledSection = styled.section`
     }
 `;
 
-export const SignInContainer = styled.div`
+export const RegisterContainer = styled.div`
     width: 90%;
     max-width: 450px;
     margin: 0 auto;
