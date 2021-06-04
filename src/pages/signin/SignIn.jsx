@@ -3,9 +3,11 @@ import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { StyledSection, SignInContainer, Form, Border } from './signInStyles';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const SignIn = () => {
+    const history = useHistory();
+
     const {
         register,
         handleSubmit,
@@ -14,7 +16,8 @@ const SignIn = () => {
 
     const handleSubmitOnClick = (data) => {
         console.log(data);
-        alert(data.email);
+        // alert(data.email);
+        history.push('/profile');
     };
 
     return (
