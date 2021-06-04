@@ -3,10 +3,11 @@ import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import { StyledSection, SignInContainer, Form, Border } from './signInStyles';
 import { useForm } from 'react-hook-form';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 
 const SignIn = () => {
     const history = useHistory();
+    const { email } = useParams();
 
     const {
         register,
@@ -36,6 +37,7 @@ const SignIn = () => {
                             },
                         })}
                         id='email'
+                        defaultValue={email ? email : ''}
                         placeholder='Email address'
                     />
                     {errors.email && <span>{errors.email.message}</span>}

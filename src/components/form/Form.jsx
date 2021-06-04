@@ -2,8 +2,11 @@ import React from 'react';
 import { FormContent, StyledForm, Button } from './formStyles';
 import { BsChevronRight } from 'react-icons/bs';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 
 const Form = () => {
+    const history = useHistory();
+
     const {
         register,
         handleSubmit,
@@ -12,7 +15,9 @@ const Form = () => {
 
     const handleOnSubmit = (data) => {
         console.log(data);
-        alert(data);
+        // alert(data.email);
+
+        history.push(`/login/${data.email}`);
     };
 
     return (

@@ -11,10 +11,11 @@ const App = () => {
         <Router>
             <GlobalStyle />
             <Switch>
+                <Route path='/login/:email' component={SignIn} />
+                <Route path='/login' component={SignIn} />
+                <Route path='/register' component={Register} />
+                <Route path='/profile' component={Profile} />
                 <Route exact path='/' component={Home} />
-                <Route exact path='/login' component={SignIn} />
-                <Route exact path='/register' component={Register} />
-                <Route exact path='/profile' component={Profile} />
             </Switch>
         </Router>
     );
