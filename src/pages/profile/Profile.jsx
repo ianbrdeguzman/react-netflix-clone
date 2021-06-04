@@ -14,6 +14,7 @@ const Profile = () => {
     const handleOnClick = () => {
         history.push('/browse');
     };
+
     return (
         <section>
             <Header login />

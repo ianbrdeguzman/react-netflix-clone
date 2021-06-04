@@ -40,6 +40,7 @@ export const Form = styled.form`
         margin-top: 1rem;
         background: #323232;
         font-size: 14px;
+        color: #ffffff;
         &:focus {
             outline: none;
         }

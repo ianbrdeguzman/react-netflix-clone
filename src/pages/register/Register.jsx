@@ -8,9 +8,11 @@ import {
     Border,
 } from './registerStyles';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Register = () => {
+    const history = useHistory();
+
     const {
         register,
         handleSubmit,
@@ -20,7 +22,8 @@ const Register = () => {
 
     const handleSubmitOnClick = (data) => {
         console.log(data);
-        alert(data.email);
+        // alert(data.email);
+        history.push(`/login/${data.email}`);
     };
 
     return (

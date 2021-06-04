@@ -6,7 +6,7 @@ const Header = ({ login }) => {
     return (
         <StyledHeader>
             <Logo to='/'>
-                <img src='./images/netflix-logo.png' alt='logo' />
+                <img src='/images/netflix-logo.png' alt='logo' />
             </Logo>
             {!login && (
                 <Link to='/login'>
