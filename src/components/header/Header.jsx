@@ -3,10 +3,6 @@ import { StyledHeader, Logo, Button } from './headerStyles';
 import { Link } from 'react-router-dom';
 
 const Header = ({ login }) => {
-    const handleSignInOnClick = () => {
-        console.log('Sign in...');
-    };
-
     return (
         <StyledHeader>
             <Logo to='/'>
@@ -14,7 +10,7 @@ const Header = ({ login }) => {
             </Logo>
             {!login && (
                 <Link to='/login'>
-                    <Button onClick={handleSignInOnClick}>Sign In</Button>
+                    <Button>Sign In</Button>
                 </Link>
             )}
         </StyledHeader>

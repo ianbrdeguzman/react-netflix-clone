@@ -12,7 +12,9 @@ const Form = () => {
 
     const handleOnSubmit = (data) => {
         console.log(data);
+        alert(data);
     };
+
     return (
         <FormContent>
             <p>
