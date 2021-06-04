@@ -9,7 +9,7 @@ const Header = ({ login }) => {
 
     return (
         <StyledHeader>
-            <Logo>
+            <Logo to='/'>
                 <img src='./images/netflix-logo.png' alt='logo' />
             </Logo>
             {!login && (

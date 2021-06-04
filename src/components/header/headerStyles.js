@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
     width: 90%;
@@ -9,7 +10,7 @@ export const StyledHeader = styled.header`
     align-items: center;
 `;
 
-export const Logo = styled.div`
+export const Logo = styled(Link)`
     width: 24vw;
     min-width: 90px;
     max-width: 167px;
