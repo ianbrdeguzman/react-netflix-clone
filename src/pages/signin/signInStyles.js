@@ -35,10 +35,12 @@ export const Form = styled.form`
         padding: 1rem;
         border: none;
         border-radius: 0.2rem;
-        margin-bottom: 1rem;
+        margin-top: 1rem;
         background: #323232;
         font-size: 14px;
-
+        &:focus {
+            outline: none;
+        }
         @media (min-width: 600px) {
             font-size: 1rem;
         }
@@ -61,6 +63,10 @@ export const Form = styled.form`
         span {
             color: #0071eb;
         }
+    }
+    span {
+        font-size: 13px;
+        color: #ff9210;
     }
 `;
 
