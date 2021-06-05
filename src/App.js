@@ -4,6 +4,7 @@ import Home from './pages/home/Home';
 import SignIn from './pages/signin/SignIn';
 import Register from './pages/register/Register';
 import Profile from './pages/profile/Profile';
+import Browse from './pages/browse/Browse';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path='/login' component={SignIn} />
                 <Route path='/register' component={Register} />
                 <Route path='/profile' component={Profile} />
+                <Route path='/browse' component={Browse} />
                 <Route exact path='/' component={Home} />
             </Switch>
         </Router>

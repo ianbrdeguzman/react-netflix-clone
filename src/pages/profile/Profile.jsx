@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import Header from '../../components/header/Header';
 import {
+    StyledSection,
     ProfileContainer,
     ProfileContent,
     ProfileInfo,
@@ -16,7 +17,7 @@ const Profile = () => {
     };
 
     return (
-        <section>
+        <StyledSection>
             <Header login />
             <ProfileContainer>
                 <ProfileContent>
@@ -32,7 +33,7 @@ const Profile = () => {
                     </button>
                 </ProfileContent>
             </ProfileContainer>
-        </section>
+        </StyledSection>
     );
 };
 

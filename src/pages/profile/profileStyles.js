@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const StyledSection = styled.section`
+    background-color: #141414;
+    height: 100vh;
+    overflow: hidden;
+`;
+
 export const ProfileContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -9,7 +15,7 @@ export const ProfileContainer = styled.div`
 
 export const ProfileContent = styled.div`
     width: 80vw;
-    min-height: 91vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -70,10 +76,5 @@ export const ImageContainer = styled.div`
         width: 10vw;
         height: 10vw;
         margin: 1rem 2rem;
-    }
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
     }
 `;
