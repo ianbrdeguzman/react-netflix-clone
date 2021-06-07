@@ -1,37 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BiPlay } from 'react-icons/bi';
 import { AiOutlineInfoCircle } from 'react-icons/ai';
 import {
     BannerContainer,
+    BannerContent,
     BannerTitle,
-    BannerDescription,
+    BannerOverview,
     BannerButtons,
 } from './bannerStyles';
+import { truncate } from '../../helpers/utils';
+import axios from '../../helpers/axios';
+import request from '../../helpers/request';
 
 const Banner = () => {
-    const truncate = (str) => {
-        return str?.length > 100 ? str.substring(0, 100) + '...' : str;
-    };
+    const [movie, setMovie] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const {
+                data: { results },
+            } = await axios.get(request.fetchNetflixOriginals);
+            setMovie(results[Math.floor(Math.random() * results.length - 1)]);
+        };
+
+        fetchData();
+    }, []);
+
+    console.log(movie);
+
     return (
-        <BannerContainer>
-            <BannerTitle>
-                <img src='/images/hero-title.webp' alt='banner' />
-            </BannerTitle>
-            <BannerDescription>
-                {truncate(
-                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis molestias quibusdam, ut placeat aperiam nemo inventore dolore nam animi deserunt consectetur nisi veniam voluptatem sapiente doloribus perspiciatis ad voluptatibus libero?'
-                )}
-            </BannerDescription>
-            <BannerButtons>
-                <button>
-                    <BiPlay />
-                    Play
-                </button>
-                <button>
-                    <AiOutlineInfoCircle />
-                    More Info
-                </button>
-            </BannerButtons>
+        <BannerContainer image={movie?.backdrop_path}>
+            <BannerContent>
+                <BannerTitle>{movie?.name || movie?.original_name}</BannerTitle>
+                <BannerOverview>
+                    {truncate(movie?.overview, 150)}
+                </BannerOverview>
+                <BannerButtons>
+                    <button>
+                        <BiPlay />
+                        Play
+                    </button>
+                    <button>
+                        <AiOutlineInfoCircle />
+                        More Info
+                    </button>
+                </BannerButtons>
+            </BannerContent>
         </BannerContainer>
     );
 };

@@ -1,29 +1,27 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Header = styled.header`
+    width: 100%;
     height: 41px;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: ${(props) => props.show === true && 'black'};
+    transition: all 1s ease;
     @media (min-width: 900px) {
         height: 68px;
+        padding: 0 4rem;
         font-size: 25px;
     }
 `;
 
-export const Nav = styled.nav`
-    display: flex;
-`;
-
-export const ProfileButton = styled.button`
-    width: 32px;
-    height: 32px;
-    border-radius: 0.2rem;
-    overflow: hidden;
-`;
-
-export const Logo = styled.div`
+export const Logo = styled(Link)`
     width: 56px;
     height: 5vw;
     max-height: 31px;
@@ -37,20 +35,9 @@ export const Logo = styled.div`
     }
 `;
 
-export const Navbar = styled.ul`
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 500;
-    color: #e5e5e5;
-    li {
-        font-size: 12px;
-        margin-left: 0.5rem;
-    }
-    @media (min-width: 900px) {
-        li {
-            font-size: 14px;
-        }
-    }
+export const Avatar = styled.button`
+    width: 32px;
+    height: 32px;
+    border-radius: 0.2rem;
+    overflow: hidden;
 `;
