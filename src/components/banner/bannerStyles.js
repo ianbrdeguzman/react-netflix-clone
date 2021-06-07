@@ -1,23 +1,28 @@
 import styled from 'styled-components';
 
-export const HeroContainer = styled.div`
+export const BannerContainer = styled.div`
     min-height: calc(100vh - 41px);
-
+    padding: 2vh 0 0 0;
+    @media (min-width: 600px) {
+        min-height: calc(100vh - 68px);
+        padding: 5vh 0 0 0;
+    }
     @media (min-width: 900px) {
         min-height: calc(100vh - 68px);
+        padding: 10vh 0 0 0;
     }
 `;
 
-export const HeroImage = styled.div`
+export const BannerTitle = styled.div`
     width: 30vw;
 `;
 
-export const HeroDescription = styled.p`
+export const BannerDescription = styled.p`
     width: 30vw;
     font-size: 2vw;
 `;
 
-export const HeroButtons = styled.div`
+export const BannerButtons = styled.div`
     display: flex;
     button {
         margin: 1rem 0.5rem 0 0;

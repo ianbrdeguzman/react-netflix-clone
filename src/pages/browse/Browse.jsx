@@ -1,6 +1,6 @@
 import React from 'react';
 import BrowseHeader from '../../components/header/BrowseHeader';
-import BrowseHero from '../../components/hero/BrowseHero';
+import Banner from '../../components/banner/Banner';
 import { StyledSection, BrowseContent } from './browseStyles';
 
 const Browse = () => {
@@ -8,7 +8,7 @@ const Browse = () => {
         <StyledSection>
             <BrowseContent>
                 <BrowseHeader />
-                <BrowseHero />
+                <Banner />
             </BrowseContent>
         </StyledSection>
     );
