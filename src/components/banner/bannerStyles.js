@@ -1,32 +1,71 @@
 import styled from 'styled-components';
 
 export const BannerContainer = styled.div`
-    min-height: calc(100vh - 41px);
-    padding: 2vh 0 0 0;
+    height: 300px;
+    position: relative;
+    object-fit: contain;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 1)),
+        ${(props) =>
+            props.image &&
+            `url(http://image.tmdb.org/t/p/original/${props.image})`};
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
     @media (min-width: 600px) {
-        min-height: calc(100vh - 68px);
-        padding: 5vh 0 0 0;
+        height: 400px;
     }
     @media (min-width: 900px) {
-        min-height: calc(100vh - 68px);
-        padding: 10vh 0 0 0;
+        height: 500px;
+    }
+    @media (min-width: 1440px) {
+        height: 720px;
     }
 `;
 
-export const BannerTitle = styled.div`
-    width: 30vw;
+export const BannerContent = styled.div`
+    padding: 0 0 0 2rem;
+    position: absolute;
+    top: 25%;
+    left: 0;
+
+    @media (min-width: 900px) {
+        padding: 0 0 0 4rem;
+    }
+    @media (min-width: 1280px) {
+        top: 30%;
+    }
 `;
 
-export const BannerDescription = styled.p`
-    width: 30vw;
-    font-size: 2vw;
+export const BannerTitle = styled.h2`
+    width: 100%;
+    font-size: 1rem;
+    @media (min-width: 600px) {
+        font-size: 2rem;
+    }
+    @media (min-width: 900px) {
+        font-size: 3rem;
+    }
+`;
+
+export const BannerOverview = styled.p`
+    font-size: 9px;
+    text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.5);
+    width: 50vw;
+    @media (min-width: 600px) {
+        font-size: 13px;
+    }
+    @media (min-width: 900px) {
+        font-size: 20px;
+        width: 30vw;
+    }
 `;
 
 export const BannerButtons = styled.div`
     display: flex;
     button {
         margin: 1rem 0.5rem 0 0;
-        padding: 0.2rem 1rem;
+        padding: 0.2rem 0.5rem;
         color: #000000;
         background-color: #ffffff;
         border-radius: 0.2rem;
@@ -40,16 +79,16 @@ export const BannerButtons = styled.div`
             background-color: #c1c0c0;
         }
         @media (min-width: 900px) {
-            font-size: 1.5vw;
+            font-size: 1.3vw;
             padding: 0.5rem 1rem;
             margin: 1rem 1rem 0 0;
-        }
-        svg {
-            margin-right: 0.5rem;
         }
     }
     button:last-child {
         color: #ffffff;
         background-color: rgba(128, 128, 128, 0.9);
+        &:hover {
+            background-color: rgba(193, 192, 192, 0.5);
+        }
     }
 `;

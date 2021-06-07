@@ -1,21 +1,32 @@
-import React from 'react';
-import { Header, Nav, Logo, Navbar, ProfileButton } from './browseHeaderStyles';
+import React, { useEffect, useState } from 'react';
+import { Header, Logo, Avatar } from './browseHeaderStyles';
 
 const BrowseHeader = () => {
+    const [show, setShow] = useState(false);
+
+    const showBackground = () => {
+        if (window.scrollY > 1) {
+            setShow(true);
+        } else {
+            setShow(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', showBackground);
+        return () => {
+            window.removeEventListener('scroll', showBackground);
+        };
+    }, []);
+
     return (
-        <Header>
-            <Nav>
-                <Logo>
-                    <img src='/images/netflix-logo.png' alt='logo' />
-                </Logo>
-                <Navbar>
-                    <li>TV Shows</li>
-                    <li>Movies</li>
-                </Navbar>
-            </Nav>
-            <ProfileButton>
+        <Header show={show}>
+            <Logo to='/browse'>
+                <img src='/images/netflix-logo.png' alt='logo' />
+            </Logo>
+            <Avatar>
                 <img src='/images/profile.png' alt='profile' />
-            </ProfileButton>
+            </Avatar>
         </Header>
     );
 };

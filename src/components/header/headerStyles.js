@@ -8,6 +8,8 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: ${(props) =>
+        props.show === true ? 'black' : 'transparent'};
 `;
 
 export const Logo = styled(Link)`
