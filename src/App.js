@@ -18,6 +18,7 @@ const App = () => {
                 <Route path='/profile' component={Profile} />
                 <Route path='/browse' component={Browse} />
                 <Route exact path='/' component={Home} />
+                <Route path='/*' component={Home} />
             </Switch>
         </Router>
     );

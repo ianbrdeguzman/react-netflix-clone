@@ -36,14 +36,29 @@ export const CardContainer = styled.div`
 `;
 
 export const Card = styled.div`
-    min-width: 250px;
-    height: ${(props) => (props.isLarge ? 'auto' : '140px')};
+    min-width: 45vw;
+    max-height: ${(props) => (props.isLarge ? 'auto' : '140px')};
     border-radius: 0.5rem;
     overflow: hidden;
     margin-right: 0.4rem;
+
+    @media (min-width: 600px) {
+        min-width: 30vw;
+    }
+    @media (min-width: 900px) {
+        min-width: 20vw;
+    }
+    @media (min-width: 1440px) {
+        min-width: 15vw;
+    }
+
     img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+        &:hover {
+            transform: scale(1.1);
+        }
     }
 `;

@@ -10,7 +10,6 @@ const Row = ({ title, url, isLarge }) => {
             const {
                 data: { results },
             } = await axios.get(url);
-            console.log(url);
             setMovies(results);
         };
         fetchData();
@@ -24,7 +23,7 @@ const Row = ({ title, url, isLarge }) => {
                         .filter((movie) => movie.poster_path)
                         .map(({ id, poster_path, backdrop_path }) => {
                             return (
-                                <Card isLarge={isLarge}>
+                                <Card isLarge={isLarge} key={id}>
                                     <img
                                         key={id}
                                         src={`http://image.tmdb.org/t/p/w300${

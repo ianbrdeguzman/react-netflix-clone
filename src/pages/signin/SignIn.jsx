@@ -1,12 +1,29 @@
 import React from 'react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
-import { StyledSection, SignInContainer, Form, Border } from './signInStyles';
+import {
+    StyledSection,
+    SignInContainer,
+    Form,
+    Border,
+    Error,
+    Loader,
+} from './signInStyles';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    signinRequest,
+    signinSuccess,
+    signinFail,
+} from '../../redux/slices/userLoginSlice';
+import { auth } from '../../helpers/firebase';
+import { ImSpinner2 } from 'react-icons/im';
 
 const SignIn = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const { loading, error } = useSelector((state) => state.userLogin);
     const { email } = useParams();
 
     const {
@@ -15,10 +32,18 @@ const SignIn = () => {
         formState: { errors },
     } = useForm();
 
-    const handleSubmitOnClick = (data) => {
-        console.log(data);
-        // alert(data.email);
-        history.push('/profile');
+    const handleSubmitOnClick = async (data) => {
+        dispatch(signinRequest());
+        try {
+            const response = await auth.signInWithEmailAndPassword(
+                data.email,
+                data.password
+            );
+            dispatch(signinSuccess(response.user));
+            history.push('/profile');
+        } catch (error) {
+            dispatch(signinFail(error.message));
+        }
     };
 
     return (
@@ -27,6 +52,7 @@ const SignIn = () => {
             <SignInContainer>
                 <Form onSubmit={handleSubmit(handleSubmitOnClick)}>
                     <h1>Sign In</h1>
+                    {error && <Error>{error}</Error>}
                     <input
                         type='text'
                         {...register('email', {
@@ -61,7 +87,15 @@ const SignIn = () => {
                         placeholder='Password'
                     />
                     {errors.password && <span>{errors.password.message}</span>}
-                    <button type='submit'>Sign In</button>
+                    <button type='submit'>
+                        {loading ? (
+                            <Loader>
+                                <ImSpinner2 />
+                            </Loader>
+                        ) : (
+                            'Sign in'
+                        )}
+                    </button>
                     <p>
                         New to Netflix? <Link to='/register'>Sign up now.</Link>
                     </p>

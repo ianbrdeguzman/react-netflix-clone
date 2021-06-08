@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import BrowseHeader from '../../components/header/BrowseHeader';
 import Banner from '../../components/banner/Banner';
 import Row from '../../components/row/Row';
 import Footer from '../../components/footer/Footer';
 import { StyledSection } from './browseStyles';
 import request from '../../helpers/request';
+import { useHistory } from 'react-router';
+import { auth } from '../../helpers/firebase';
 
 const Browse = () => {
+    const history = useHistory();
+
+    useEffect(() => {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                console.log('user is logged in');
+            } else {
+                history.push('/');
+            }
+        });
+    }, [history]);
     return (
         <StyledSection>
             <BrowseHeader />
