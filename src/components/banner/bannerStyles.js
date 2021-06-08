@@ -4,7 +4,7 @@ export const BannerContainer = styled.div`
     height: 300px;
     position: relative;
     object-fit: contain;
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 1)),
+    background: linear-gradient(180deg, transparent, #141414),
         ${(props) =>
             props.image &&
             `url(http://image.tmdb.org/t/p/original/${props.image})`};

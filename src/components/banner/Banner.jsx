@@ -26,8 +26,6 @@ const Banner = () => {
         fetchData();
     }, []);
 
-    console.log(movie);
-
     return (
         <BannerContainer image={movie?.backdrop_path}>
             <BannerContent>
