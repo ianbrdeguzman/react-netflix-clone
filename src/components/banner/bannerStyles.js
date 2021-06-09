@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const BannerContainer = styled.div`
     height: 300px;
-    position: relative;
     object-fit: contain;
     background: linear-gradient(180deg, transparent, #141414),
         ${(props) =>
             props.image &&
             `url(http://image.tmdb.org/t/p/original/${props.image})`};
     background-size: cover;
-    background-position: center center;
+    background-position: center 0;
     background-repeat: no-repeat;
 
     @media (min-width: 600px) {
@@ -26,7 +25,7 @@ export const BannerContainer = styled.div`
 export const BannerContent = styled.div`
     padding: 0 0 0 2rem;
     position: absolute;
-    top: 25%;
+    top: 15%;
     left: 0;
 
     @media (min-width: 900px) {

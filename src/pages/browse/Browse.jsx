@@ -7,19 +7,24 @@ import { StyledSection } from './browseStyles';
 import request from '../../helpers/request';
 import { useHistory } from 'react-router';
 import { auth } from '../../helpers/firebase';
+import { useDispatch } from 'react-redux';
+import { signinSuccess } from '../../redux/slices/userLoginSlice';
 
 const Browse = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        auth.onAuthStateChanged((user) => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
-                console.log('user is logged in');
+                dispatch(signinSuccess(user.email));
             } else {
                 history.push('/');
             }
         });
-    }, [history]);
+
+        return unsubscribe;
+    }, [history, dispatch]);
     return (
         <StyledSection>
             <BrowseHeader />

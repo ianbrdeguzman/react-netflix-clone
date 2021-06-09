@@ -7,19 +7,24 @@ import { Border } from './homeStyles';
 import { data } from '../../components/feature/featureData';
 import { auth } from '../../helpers/firebase';
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { signout } from '../../redux/slices/userLoginSlice';
 
 const Home = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        auth.onAuthStateChanged((user) => {
+        const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
                 history.push('/browse');
             } else {
-                console.log('logged out');
+                dispatch(signout());
             }
         });
-    }, [history]);
+
+        return unsubscribe;
+    }, [history, dispatch]);
 
     return (
         <div>

@@ -8,9 +8,11 @@ import {
     ProfileInfo,
     ImageContainer,
 } from './profileStyles';
+import { useSelector } from 'react-redux';
 
 const Profile = () => {
     const history = useHistory();
+    const { user } = useSelector((state) => state.userLogin);
 
     const handleOnClick = () => {
         history.push('/browse');
@@ -26,7 +28,7 @@ const Profile = () => {
                         <ImageContainer onClick={handleOnClick}>
                             <img src='/images/profile.png' alt='profile' />
                         </ImageContainer>
-                        <p>Guest</p>
+                        <p>{user}</p>
                     </ProfileInfo>
                     <button onClick={() => alert('Not yet implemented')}>
                         Manage profile
