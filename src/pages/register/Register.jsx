@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import {
@@ -19,11 +19,13 @@ import {
     registerFail,
 } from '../../redux/slices/userRegisterSlice';
 import { ImSpinner2 } from 'react-icons/im';
+import { signout } from '../../redux/slices/userLoginSlice';
 
 const Register = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const { loading, error } = useSelector((state) => state.userRegister);
+    const { user } = useSelector((state) => state.userLogin);
 
     const {
         register,
@@ -31,6 +33,12 @@ const Register = () => {
         formState: { errors },
         watch,
     } = useForm();
+
+    useEffect(() => {
+        if (!user) {
+            dispatch(signout());
+        }
+    }, [dispatch, user]);
 
     const handleSubmitOnClick = async (data) => {
         dispatch(registerRequest());
@@ -40,7 +48,7 @@ const Register = () => {
                 data.password
             );
             dispatch(registerSuccess(JSON.stringify(response.user)));
-            history.push(`/login`);
+            history.push(`/login/${response.user.email}`);
         } catch (error) {
             dispatch(registerFail(error.message));
         }
