@@ -55,20 +55,6 @@ const Register = () => {
                     {error && <Error>{error}</Error>}
                     <input
                         type='text'
-                        {...register('name', {
-                            required: 'Please enter your name.',
-                            minLength: {
-                                value: 4,
-                                message:
-                                    'Your name must contain atleast 4 characters.',
-                            },
-                        })}
-                        id='name'
-                        placeholder='Name'
-                    />
-                    {errors.name && <span>{errors.name.message}</span>}
-                    <input
-                        type='text'
                         {...register('email', {
                             required: 'Please enter a valid email.',
                             pattern: {

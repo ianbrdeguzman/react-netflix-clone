@@ -28,7 +28,7 @@ const Profile = () => {
                         <ImageContainer onClick={handleOnClick}>
                             <img src='/images/profile.png' alt='profile' />
                         </ImageContainer>
-                        <p>{user}</p>
+                        <p>{JSON.parse(user).email}</p>
                     </ProfileInfo>
                     <button onClick={() => alert('Not yet implemented')}>
                         Manage profile
