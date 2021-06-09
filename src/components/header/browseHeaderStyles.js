@@ -11,7 +11,7 @@ export const Header = styled.header`
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 100;
     background-color: ${(props) => props.show === true && 'black'};
     transition: background-color 1s ease;
     @media (min-width: 900px) {

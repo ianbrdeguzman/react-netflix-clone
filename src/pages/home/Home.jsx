@@ -8,7 +8,6 @@ import { data } from '../../components/feature/featureData';
 import { auth } from '../../helpers/firebase';
 import { useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
-import { signout } from '../../redux/slices/userLoginSlice';
 
 const Home = () => {
     const history = useHistory();
@@ -18,8 +17,6 @@ const Home = () => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
                 history.push('/browse');
-            } else {
-                dispatch(signout());
             }
         });
 

@@ -39,8 +39,8 @@ const Register = () => {
                 data.email,
                 data.password
             );
-            dispatch(registerSuccess(response.user));
-            history.push(`/login/${response.user.email}`);
+            dispatch(registerSuccess(JSON.stringify(response.user)));
+            history.push(`/login`);
         } catch (error) {
             dispatch(registerFail(error.message));
         }

@@ -29,6 +29,7 @@ const SignIn = () => {
     const {
         register,
         handleSubmit,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -39,10 +40,12 @@ const SignIn = () => {
                 data.email,
                 data.password
             );
-            dispatch(signinSuccess(response.user));
+            dispatch(signinSuccess(JSON.stringify(response.user)));
+            reset();
             history.push('/profile');
         } catch (error) {
             dispatch(signinFail(error.message));
+            reset();
         }
     };
 
