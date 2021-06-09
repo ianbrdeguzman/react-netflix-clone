@@ -40,9 +40,11 @@ const SignIn = () => {
                 data.email,
                 data.password
             );
-            dispatch(signinSuccess(JSON.stringify(response.user)));
-            reset();
-            history.push('/profile');
+            if (response) {
+                dispatch(signinSuccess(JSON.stringify(response.user)));
+                reset();
+                history.push('/profile');
+            }
         } catch (error) {
             dispatch(signinFail(error.message));
             reset();
