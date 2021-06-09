@@ -16,14 +16,21 @@ const Banner = () => {
     const [movie, setMovie] = useState([]);
 
     useEffect(() => {
+        let isMounted = true;
         const fetchData = async () => {
             const {
                 data: { results },
             } = await axios.get(request.fetchNetflixOriginals);
-            setMovie(results[Math.floor(Math.random() * results.length - 1)]);
+            if (isMounted)
+                setMovie(
+                    results[Math.floor(Math.random() * results.length - 1)]
+                );
         };
 
         fetchData();
+        return () => {
+            isMounted = false;
+        };
     }, []);
 
     return (

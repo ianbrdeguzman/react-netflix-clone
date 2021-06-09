@@ -22,7 +22,7 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled(Link)`
-    width: 56px;
+    width: 84px;
     height: 5vw;
     max-height: 31px;
 
@@ -40,4 +40,45 @@ export const Avatar = styled.button`
     height: 32px;
     border-radius: 0.2rem;
     overflow: hidden;
+`;
+
+export const DropDown = styled.div`
+    font-size: 14px;
+    min-width: 160px;
+    padding: 0 0.5rem;
+    background-color: #000000;
+    position: absolute;
+    top: 41px;
+    right: 2rem;
+    border-top: 3px solid #ffffff;
+
+    &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+        border-bottom: 1rem solid white;
+        position: absolute;
+        top: -1rem;
+        right: 0rem;
+    }
+
+    @media (min-width: 900px) {
+        top: 68px;
+        right: 4rem;
+    }
+    ul {
+        list-style: none;
+        li {
+            padding: 0.5rem 0;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        li:first-child {
+            border-bottom: 1px solid #ffffff;
+        }
+    }
 `;

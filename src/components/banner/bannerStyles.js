@@ -31,7 +31,7 @@ export const BannerContent = styled.div`
     @media (min-width: 900px) {
         padding: 0 0 0 4rem;
     }
-    @media (min-width: 1280px) {
+    @media (min-width: 1440px) {
         top: 30%;
     }
 `;

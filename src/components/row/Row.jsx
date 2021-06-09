@@ -7,13 +7,19 @@ const Row = ({ title, url, isLarge }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
+        let isMounted = true;
         const fetchData = async () => {
             const {
                 data: { results },
             } = await axios.get(url);
-            setMovies(results);
+            if (isMounted) {
+                setMovies(results);
+            }
         };
         fetchData();
+        return () => {
+            isMounted = false;
+        };
     }, [url]);
 
     return (

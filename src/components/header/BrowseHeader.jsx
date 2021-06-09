@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
-import { Header, Logo, Avatar } from './browseHeaderStyles';
+import { Link } from 'react-router-dom';
+import { Header, Logo, Avatar, DropDown } from './browseHeaderStyles';
+import { auth } from '../../helpers/firebase';
+import { useDispatch } from 'react-redux';
+import { signout } from '../../redux/slices/userLoginSlice';
 
 const BrowseHeader = () => {
-    const history = useHistory();
+    const dispatch = useDispatch();
     const [show, setShow] = useState(false);
+    const [showDropDown, setShowDropDown] = useState(false);
 
     const showBackground = () => {
         if (window.scrollY > 1) {
@@ -14,8 +18,17 @@ const BrowseHeader = () => {
         }
     };
 
-    const handleProfileOnClick = () => {
-        history.push('/profile');
+    const handleOnMouseOver = () => {
+        setShowDropDown(true);
+    };
+
+    const handleOnMouseLeave = () => {
+        setShowDropDown(false);
+    };
+
+    const handleSignOut = () => {
+        auth.signOut();
+        dispatch(signout());
     };
 
     useEffect(() => {
@@ -26,13 +39,23 @@ const BrowseHeader = () => {
     }, []);
 
     return (
-        <Header show={show}>
+        <Header show={show} onMouseLeave={handleOnMouseLeave}>
             <Logo to='/browse'>
                 <img src='/images/netflix-logo.png' alt='logo' />
             </Logo>
-            <Avatar onClick={handleProfileOnClick}>
+            <Avatar onMouseOver={handleOnMouseOver}>
                 <img src='/images/profile.png' alt='profile' />
             </Avatar>
+            {showDropDown && (
+                <DropDown>
+                    <ul>
+                        <li>
+                            <Link to='/profile'>Profiles</Link>
+                        </li>
+                        <li onClick={handleSignOut}>Sign out of Netflix</li>
+                    </ul>
+                </DropDown>
+            )}
         </Header>
     );
 };
