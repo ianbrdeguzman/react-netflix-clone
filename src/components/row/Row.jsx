@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { RowContainer, RowContent, CardContainer, Card } from './rowStyles';
+import Card from '../card/Card';
+import { RowContainer, RowContent, CardContainer } from './rowStyles';
 import axios from '../../helpers/axios';
 
 const Row = ({ title, url, isLarge }) => {
@@ -10,31 +11,27 @@ const Row = ({ title, url, isLarge }) => {
             const {
                 data: { results },
             } = await axios.get(url);
-            console.log(url);
             setMovies(results);
         };
         fetchData();
     }, [url]);
+
     return (
         <RowContainer>
             <RowContent>
                 <h2>{title}</h2>
                 <CardContainer>
                     {movies
-                        .filter((movie) => movie.poster_path)
-                        .map(({ id, poster_path, backdrop_path }) => {
+                        .filter(
+                            (movie) => movie.poster_path && movie.backdrop_path
+                        )
+                        .map((movie) => {
                             return (
-                                <Card isLarge={isLarge}>
-                                    <img
-                                        key={id}
-                                        src={`http://image.tmdb.org/t/p/w300${
-                                            isLarge
-                                                ? poster_path
-                                                : backdrop_path
-                                        }`}
-                                        alt='poster'
-                                    ></img>
-                                </Card>
+                                <Card
+                                    key={movie.id}
+                                    {...movie}
+                                    isLarge={isLarge}
+                                />
                             );
                         })}
                 </CardContainer>

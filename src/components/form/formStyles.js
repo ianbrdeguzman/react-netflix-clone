@@ -67,7 +67,10 @@ export const Button = styled.button`
     }
     @media (min-width: 900px) {
         font-size: 26px;
-        height: 70px;
+        height: 60px;
         border-radius: 0.1rem;
+    }
+    @media (min-width: 1440px) {
+        height: 70px;
     }
 `;

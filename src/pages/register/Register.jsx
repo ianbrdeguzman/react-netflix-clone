@@ -6,12 +6,24 @@ import {
     RegisterContainer,
     Form,
     Border,
+    Error,
+    Loader,
 } from './registerStyles';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
+import { auth } from '../../helpers/firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+    registerRequest,
+    registerSuccess,
+    registerFail,
+} from '../../redux/slices/userRegisterSlice';
+import { ImSpinner2 } from 'react-icons/im';
 
 const Register = () => {
     const history = useHistory();
+    const dispatch = useDispatch();
+    const { loading, error } = useSelector((state) => state.userRegister);
 
     const {
         register,
@@ -20,10 +32,18 @@ const Register = () => {
         watch,
     } = useForm();
 
-    const handleSubmitOnClick = (data) => {
-        console.log(data);
-        // alert(data.email);
-        history.push(`/login/${data.email}`);
+    const handleSubmitOnClick = async (data) => {
+        dispatch(registerRequest());
+        try {
+            const response = await auth.createUserWithEmailAndPassword(
+                data.email,
+                data.password
+            );
+            dispatch(registerSuccess(response.user));
+            history.push(`/login/${response.user.email}`);
+        } catch (error) {
+            dispatch(registerFail(error.message));
+        }
     };
 
     return (
@@ -32,6 +52,7 @@ const Register = () => {
             <RegisterContainer>
                 <Form onSubmit={handleSubmit(handleSubmitOnClick)}>
                     <h1>Create an account</h1>
+                    {error && <Error>{error}</Error>}
                     <input
                         type='text'
                         {...register('name', {
@@ -92,7 +113,15 @@ const Register = () => {
                     {errors.confirmPassword && (
                         <span>{errors.confirmPassword.message}</span>
                     )}
-                    <button type='submit'>Create Account</button>
+                    <button type='submit'>
+                        {loading ? (
+                            <Loader>
+                                <ImSpinner2 />
+                            </Loader>
+                        ) : (
+                            'Create Account'
+                        )}
+                    </button>
                     <p>
                         Already have an account? <Link to='/login'>Login.</Link>
                     </p>

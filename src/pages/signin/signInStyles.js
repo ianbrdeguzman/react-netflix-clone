@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const StyledSection = styled.section`
     min-height: 100vh;
@@ -53,6 +53,11 @@ export const Form = styled.form`
         height: 50px;
         margin: 2rem 0;
     }
+    p:nth-child(2) {
+        color: #ffffff;
+        font-size: 14px;
+        margin-bottom: 0;
+    }
     p {
         font-size: 16px;
         margin: 1rem 0;
@@ -61,7 +66,7 @@ export const Form = styled.form`
             color: #ffffff;
         }
     }
-    & p:last-child {
+    p:last-child {
         font-size: 13px;
         span {
             color: #0071eb;
@@ -77,4 +82,28 @@ export const Border = styled.div`
     @media (max-width: 600px) {
         border-bottom: 1px solid gray;
     }
+`;
+
+export const Error = styled.p`
+    background-color: #e87c03;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    a {
+        text-decoration: underline;
+    }
+`;
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+`;
+
+export const Loader = styled.div`
+    display: flex;
+    justify-content: center;
+    animation: ${rotate} 1s linear infinite;
 `;
