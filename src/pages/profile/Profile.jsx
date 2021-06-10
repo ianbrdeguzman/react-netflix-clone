@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import Header from '../../components/header/Header';
 import {
-    StyledSection,
+    ProfileSection,
     ProfileContainer,
     ProfileContent,
     ProfileInfo,
@@ -19,7 +19,7 @@ const Profile = () => {
     };
 
     return (
-        <StyledSection>
+        <ProfileSection>
             <Header login />
             <ProfileContainer>
                 <ProfileContent>
@@ -35,7 +35,7 @@ const Profile = () => {
                     </button>
                 </ProfileContent>
             </ProfileContainer>
-        </StyledSection>
+        </ProfileSection>
     );
 };
 
