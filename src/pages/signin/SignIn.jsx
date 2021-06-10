@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import {
@@ -23,7 +23,7 @@ import { ImSpinner2 } from 'react-icons/im';
 const SignIn = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-    const { loading, error } = useSelector((state) => state.userLogin);
+    const { loading, user, error } = useSelector((state) => state.userLogin);
     const { email } = useParams();
 
     const {
@@ -50,6 +50,12 @@ const SignIn = () => {
             reset();
         }
     };
+
+    useEffect(() => {
+        if (user) {
+            history.push('/browse');
+        }
+    }, [user, history]);
 
     return (
         <SignInSection>

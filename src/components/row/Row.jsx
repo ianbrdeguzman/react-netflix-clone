@@ -25,8 +25,8 @@ const Row = ({ title, url, isLarge }) => {
 
     return (
         <RowContainer>
+            <h2>{title}</h2>
             <RowContent>
-                <h2>{title}</h2>
                 <CardContainer>
                     {movies
                         .filter(

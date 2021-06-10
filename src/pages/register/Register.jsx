@@ -37,8 +37,10 @@ const Register = () => {
     useEffect(() => {
         if (!user) {
             dispatch(signout());
+        } else {
+            history.push('/browse');
         }
-    }, [dispatch, user]);
+    }, [dispatch, user, history]);
 
     const handleSubmitOnClick = async (data) => {
         dispatch(registerRequest());
@@ -47,8 +49,11 @@ const Register = () => {
                 data.email,
                 data.password
             );
+            await response.user.updateProfile({
+                displayName: data.name,
+            });
             dispatch(registerSuccess(JSON.stringify(response.user)));
-            history.push(`/login/${response.user.email}`);
+            history.push(`/login/${data.email}`);
         } catch (error) {
             dispatch(registerFail(error.message));
         }
@@ -61,6 +66,20 @@ const Register = () => {
                 <Form onSubmit={handleSubmit(handleSubmitOnClick)}>
                     <h1>Create an account</h1>
                     {error && <Error>{error}</Error>}
+                    <input
+                        type='text'
+                        {...register('name', {
+                            required: 'Please enter a valid name.',
+                            minLength: {
+                                value: 3,
+                                message:
+                                    'Your name must contain atleast 3 characters.',
+                            },
+                        })}
+                        id='name'
+                        placeholder='Name'
+                    />
+                    {errors.name && <span>{errors.name.message}</span>}
                     <input
                         type='text'
                         {...register('email', {
