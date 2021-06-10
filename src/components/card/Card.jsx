@@ -6,10 +6,11 @@ const Card = ({ id, poster_path, backdrop_path, isLarge }) => {
     const history = useHistory();
 
     const handleOnClick = () => {
-        if (isLarge) {
-            console.log('tv');
+        if (isLarge === true) {
+            history.push(`/title/${id}/tv`);
+        } else {
+            history.push(`/title/${id}/movie`);
         }
-        history.push(`/title/${id}`);
     };
 
     return (

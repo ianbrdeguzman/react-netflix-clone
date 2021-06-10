@@ -49,7 +49,7 @@ const App = () => {
                 <Route path='/browse'>
                     {!user ? <Redirect to='/' /> : <Browse />}
                 </Route>
-                <Route path='/title/:id'>
+                <Route path='/title/:id/:type'>
                     {!user ? <Redirect to='/' /> : <Title />}
                 </Route>
                 <Route exact path='/' component={Home} />
