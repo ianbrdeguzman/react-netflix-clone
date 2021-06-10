@@ -34,15 +34,9 @@ const App = () => {
         <Router>
             <GlobalStyle />
             <Switch>
-                <Route path='/login/:email'>
-                    {user ? <Redirect to='/browse' /> : <SignIn />}
-                </Route>
-                <Route path='/login'>
-                    {user ? <Redirect to='/browse' /> : <SignIn />}
-                </Route>
-                <Route path='/register'>
-                    {user ? <Redirect to='/browse' /> : <Register />}
-                </Route>
+                <Route path='/login/:email' component={SignIn} />
+                <Route path='/login' component={SignIn} />
+                <Route path='/register' component={Register} />
                 <Route path='/profile'>
                     {!user ? <Redirect to='/' /> : <Profile />}
                 </Route>
