@@ -3,15 +3,8 @@ import styled from 'styled-components';
 export const CardStyle = styled.div`
     min-width: 160px;
     min-height: ${(props) => (props.isLarge ? 'auto' : '90px')};
-    border-radius: 0.5rem;
     overflow: hidden;
-    margin-right: 0.4rem;
-    transition: transform 0.5s ease;
-    &:hover {
-        transform: scale(1.08);
-        z-index: 1;
-        cursor: pointer;
-    }
+    margin-right: 0.2rem;
 
     @media (min-width: 600px) {
         min-width: 30vw;
@@ -27,5 +20,11 @@ export const CardStyle = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: transform 0.5s ease;
+        &:hover {
+            transform: scale(1.05);
+            z-index: 1;
+            cursor: pointer;
+        }
     }
 `;
