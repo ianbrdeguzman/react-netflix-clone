@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import {
-    StyledSection,
+    RegisterSection,
     RegisterContainer,
     Form,
     Border,
@@ -55,7 +55,7 @@ const Register = () => {
     };
 
     return (
-        <StyledSection>
+        <RegisterSection>
             <Header login />
             <RegisterContainer>
                 <Form onSubmit={handleSubmit(handleSubmitOnClick)}>
@@ -127,7 +127,7 @@ const Register = () => {
             </RegisterContainer>
             <Border />
             <Footer signin />
-        </StyledSection>
+        </RegisterSection>
     );
 };
 

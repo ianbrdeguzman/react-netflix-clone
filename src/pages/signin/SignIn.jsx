@@ -2,7 +2,7 @@ import React from 'react';
 import Footer from '../../components/footer/Footer';
 import Header from '../../components/header/Header';
 import {
-    StyledSection,
+    SignInSection,
     SignInContainer,
     Form,
     Border,
@@ -52,7 +52,7 @@ const SignIn = () => {
     };
 
     return (
-        <StyledSection>
+        <SignInSection>
             <Header login />
             <SignInContainer>
                 <Form onSubmit={handleSubmit(handleSubmitOnClick)}>
@@ -112,7 +112,7 @@ const SignIn = () => {
             </SignInContainer>
             <Border />
             <Footer signin />
-        </StyledSection>
+        </SignInSection>
     );
 };
 

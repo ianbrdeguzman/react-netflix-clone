@@ -8,6 +8,7 @@ const Row = ({ title, url, isLarge }) => {
 
     useEffect(() => {
         let isMounted = true;
+
         const fetchData = async () => {
             const {
                 data: { results },

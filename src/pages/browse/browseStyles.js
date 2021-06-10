@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled.section`
+export const BrowseSection = styled.section`
     overflow-x: hidden;
     display: flex;
     flex-direction: column;

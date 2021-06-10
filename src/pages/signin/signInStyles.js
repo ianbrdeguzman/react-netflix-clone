@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 
-export const StyledSection = styled.section`
+export const SignInSection = styled.section`
     min-height: 100vh;
 
     @media (min-width: 600px) {

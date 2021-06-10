@@ -47,10 +47,10 @@ export const BannerTitle = styled.h2`
     }
 `;
 
-export const BannerOverview = styled.p`
+export const BannerOverview = styled.div`
+    width: 50vw;
     font-size: 9px;
     text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.5);
-    width: 50vw;
     @media (min-width: 600px) {
         font-size: 13px;
     }
@@ -58,36 +58,58 @@ export const BannerOverview = styled.p`
         font-size: 20px;
         width: 30vw;
     }
+    p:first-child {
+        font-weight: bold;
+        span {
+            margin: 0 2rem;
+        }
+    }
 `;
 
 export const BannerButtons = styled.div`
     display: flex;
-    button {
-        margin: 1rem 0.5rem 0 0;
-        padding: 0.2rem 0.5rem;
-        color: #000000;
-        background-color: #ffffff;
-        border-radius: 0.2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 3vw;
-        cursor: pointer;
+`;
 
-        &:hover {
-            background-color: #c1c0c0;
-        }
-        @media (min-width: 900px) {
-            font-size: 1.3vw;
-            padding: 0.5rem 1rem;
-            margin: 1rem 1rem 0 0;
-        }
+export const PlayButton = styled.button`
+    margin: 1rem 0.5rem 0 0;
+    padding: 0.2rem 0.5rem;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 0.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 3vw;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(0.8);
     }
-    button:last-child {
-        color: #ffffff;
-        background-color: rgba(128, 128, 128, 0.9);
-        &:hover {
-            background-color: rgba(193, 192, 192, 0.5);
-        }
+    @media (min-width: 900px) {
+        font-size: 1.3vw;
+        padding: 0.5rem 1rem;
+        margin: 1rem 1rem 0 0;
+    }
+`;
+
+export const MoreInfoButton = styled.button`
+    font-size: 3vw;
+    margin: 1rem 0.5rem 0 0;
+    color: #ffffff;
+    padding: 0.2rem 0.5rem;
+    background-color: rgba(128, 128, 128, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    svg {
+        margin-right: 0.5rem;
+    }
+    &:hover {
+        filter: brightness(1.2);
+    }
+    @media (min-width: 900px) {
+        font-size: 1.3vw;
+        padding: 0.5rem 1rem;
+        margin: 1rem 1rem 0 0;
     }
 `;

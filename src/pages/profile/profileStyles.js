@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledSection = styled.section`
+export const ProfileSection = styled.section`
     background-color: #141414;
     height: 100vh;
     overflow: hidden;

@@ -5,6 +5,7 @@ import SignIn from './pages/signin/SignIn';
 import Register from './pages/register/Register';
 import Profile from './pages/profile/Profile';
 import Browse from './pages/browse/Browse';
+import Title from './pages/title/Title';
 import {
     BrowserRouter as Router,
     Route,
@@ -47,6 +48,9 @@ const App = () => {
                 </Route>
                 <Route path='/browse'>
                     {!user ? <Redirect to='/' /> : <Browse />}
+                </Route>
+                <Route path='/title/:id'>
+                    {!user ? <Redirect to='/' /> : <Title />}
                 </Route>
                 <Route exact path='/' component={Home} />
                 <Route path='/*' component={Home} />
