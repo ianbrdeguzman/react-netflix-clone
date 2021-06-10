@@ -1,15 +1,30 @@
 import styled from 'styled-components';
 
-export const VideoContainer = styled.div`
-    height: 300px;
+export const VideoContainer = styled.div``;
 
-    @media (min-width: 600px) {
-        height: 400px;
-    }
-    @media (min-width: 900px) {
-        height: 500px;
-    }
-    @media (min-width: 1440px) {
-        height: 720px;
-    }
+export const VideoSize = styled.div`
+    width: 100%;
+`;
+
+export const CroppingDiv = styled.div`
+    overflow: hidden;
+`;
+
+export const DivToCrop = styled.div`
+    overflow: hidden;
+    margin-top: -50%;
+    margin-bottom: -49%;
+`;
+
+export const PlayerWrapper = styled.div`
+    position: relative;
+    overflow: hidden;
+    padding-top: 150%;
+`;
+
+export const VideoPlayer = styled.iframe`
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
 `;
