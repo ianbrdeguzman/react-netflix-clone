@@ -11,6 +11,7 @@ import {
 } from '../../redux/slices/youtubeIdSlice';
 import axios from '../../helpers/axios';
 import dotenv from 'dotenv';
+import RelatedVideos from '../../components/relatedvideos/RelatedVideos';
 
 dotenv.config();
 
@@ -36,12 +37,13 @@ const Title = () => {
             }
         };
         fetchYoutubeId();
-    }, [id, dispatch]);
+    }, [id, dispatch, url]);
 
     return (
         <TitleSection>
             <BrowseHeader />
             <Video />
+            <RelatedVideos />
         </TitleSection>
     );
 };

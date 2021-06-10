@@ -1,5 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 import movieDetailSlice from './slices/movieDetailSlice';
+import relatedVideosSlice from './slices/relatedVideosSlice';
 import userLoginSlice from './slices/userLoginSlice';
 import userRegisterSlice from './slices/userRegisterSlice';
 import youtubeIdSlice from './slices/youtubeIdSlice';
@@ -10,5 +11,6 @@ export default configureStore({
         userRegister: userRegisterSlice,
         movieDetails: movieDetailSlice,
         youtubeId: youtubeIdSlice,
+        relatedVideos: relatedVideosSlice,
     },
 });
