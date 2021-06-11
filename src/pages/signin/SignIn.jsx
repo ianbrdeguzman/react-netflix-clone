@@ -7,7 +7,6 @@ import {
     Form,
     Border,
     Error,
-    Loader,
 } from './signInStyles';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory, useParams } from 'react-router-dom';
@@ -19,6 +18,7 @@ import {
 } from '../../redux/slices/userLoginSlice';
 import { auth } from '../../helpers/firebase';
 import { ImSpinner2 } from 'react-icons/im';
+import Loader from '../../components/loader/Loader';
 
 const SignIn = () => {
     const history = useHistory();
