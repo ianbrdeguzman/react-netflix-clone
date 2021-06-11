@@ -25,8 +25,8 @@ const VideoDetail = () => {
                 </ul>
                 <ul>
                     <h4>Cast</h4>
-                    {cast?.slice(0, 10).map(({ cast_id, name }) => {
-                        return <li key={cast_id}>{name}</li>;
+                    {cast?.slice(0, 10).map(({ id, name }) => {
+                        return <li key={id}>{name}</li>;
                     })}
                     <h4>Genre</h4>
                     {genres?.map(({ name, id }) => {
