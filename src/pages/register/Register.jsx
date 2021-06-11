@@ -7,7 +7,6 @@ import {
     Form,
     Border,
     Error,
-    Loader,
 } from './registerStyles';
 import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
@@ -20,6 +19,8 @@ import {
 } from '../../redux/slices/userRegisterSlice';
 import { ImSpinner2 } from 'react-icons/im';
 import { signout } from '../../redux/slices/userLoginSlice';
+import { db } from '../../helpers/firebase';
+import Loader from '../../components/loader/Loader';
 
 const Register = () => {
     const history = useHistory();
@@ -51,6 +52,9 @@ const Register = () => {
             );
             await response.user.updateProfile({
                 displayName: data.name,
+            });
+            await db.collection('users').doc(response.user.uid).set({
+                myList: [],
             });
             dispatch(registerSuccess(JSON.stringify(response.user)));
             history.push(`/login/${data.email}`);

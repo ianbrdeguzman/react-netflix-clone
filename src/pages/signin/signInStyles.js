@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
 export const SignInSection = styled.section`
     min-height: 100vh;
@@ -91,19 +91,4 @@ export const Error = styled.p`
     a {
         text-decoration: underline;
     }
-`;
-
-const rotate = keyframes`
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-`;
-
-export const Loader = styled.div`
-    display: flex;
-    justify-content: center;
-    animation: ${rotate} 1s linear infinite;
 `;
