@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Header, Logo, Avatar, DropDown } from './browseHeaderStyles';
+import { useHistory, Link } from 'react-router-dom';
+import { Header, Logo, Navbar, Avatar, DropDown } from './browseHeaderStyles';
 import { auth } from '../../helpers/firebase';
 import { useDispatch } from 'react-redux';
 import { signout } from '../../redux/slices/userLoginSlice';
 
 const BrowseHeader = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const [show, setShow] = useState(false);
     const [showDropDown, setShowDropDown] = useState(false);
 
@@ -26,9 +27,13 @@ const BrowseHeader = () => {
         setShowDropDown(false);
     };
 
-    const handleSignOut = () => {
+    const handleSignOutOnClick = () => {
         auth.signOut();
         dispatch(signout());
+    };
+
+    const handleProfileOnClick = () => {
+        history.push('/profile');
     };
 
     useEffect(() => {
@@ -43,16 +48,23 @@ const BrowseHeader = () => {
             <Logo to='/browse'>
                 <img src='/images/netflix-logo.png' alt='logo' />
             </Logo>
+            <Navbar>
+                <ul>
+                    <li>
+                        <Link to='/browse/my-list'>My List</Link>
+                    </li>
+                </ul>
+            </Navbar>
             <Avatar onMouseOver={handleOnMouseOver}>
                 <img src='/images/profile.png' alt='profile' />
             </Avatar>
             {showDropDown && (
                 <DropDown>
                     <ul>
-                        <li>
-                            <Link to='/profile'>Profiles</Link>
+                        <li onClick={handleProfileOnClick}>Profiles</li>
+                        <li onClick={handleSignOutOnClick}>
+                            Sign out of Netflix
                         </li>
-                        <li onClick={handleSignOut}>Sign out of Netflix</li>
                     </ul>
                 </DropDown>
             )}

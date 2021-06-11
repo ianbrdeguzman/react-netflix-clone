@@ -35,6 +35,25 @@ export const Logo = styled(Link)`
     }
 `;
 
+export const Navbar = styled.nav`
+    flex: 1;
+    padding-left: 1rem;
+    justify-self: flex-start;
+    align-self: center;
+    color: #e5e5e5;
+    font-size: 14px;
+    ul {
+        list-style: none;
+        li a {
+            transition: filter 0.5s ease;
+            &:hover {
+                text-decoration: none;
+                filter: brightness(0.8);
+            }
+        }
+    }
+`;
+
 export const Avatar = styled.button`
     width: 32px;
     height: 32px;
