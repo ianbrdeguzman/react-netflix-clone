@@ -92,7 +92,7 @@ export const PlayButton = styled.button`
     }
 `;
 
-export const MoreInfoButton = styled.button`
+export const AddToListButton = styled.button`
     font-size: 3vw;
     margin: 1rem 0.5rem 0 0;
     color: #ffffff;
@@ -101,15 +101,16 @@ export const MoreInfoButton = styled.button`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    svg {
-        margin-right: 0.5rem;
-    }
+    cursor: ${(props) => (props.disabled ? 'default' : 'pointer')};
     &:hover {
-        filter: brightness(1.2);
+        filter: ${(props) => (props.disabled ? '' : 'brightness(1.2)')};
     }
     @media (min-width: 900px) {
         font-size: 1.3vw;
         padding: 0.5rem 1rem;
         margin: 1rem 1rem 0 0;
+    }
+    span {
+        margin-left: 0.5rem;
     }
 `;
