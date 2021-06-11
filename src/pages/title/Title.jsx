@@ -22,7 +22,6 @@ import {
     videoCreditSuccess,
     videoCreditFail,
 } from '../../redux/slices/videoCreditSlice';
-import ScrollToTop from '../../components/scrolltotop/ScrollToTop';
 
 const Title = () => {
     const { id, type } = useParams();
@@ -50,7 +49,10 @@ const Title = () => {
                 const {
                     data: { results },
                 } = await axios.get(youtubeIdUrl);
-                dispatch(youtubeIdSuccess(results[0].key));
+                const trailerId = await results.find(
+                    (video) => video.type === 'Trailer'
+                ).key;
+                dispatch(youtubeIdSuccess(trailerId));
             } catch (error) {
                 dispatch(youtubeIdFail(error.message));
             }
@@ -84,9 +86,16 @@ const Title = () => {
         fetchVideoCredit();
     }, [dispatch, videoCreditUrl]);
 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+        });
+    }, [id]);
+
     return (
         <TitleSection>
-            <ScrollToTop />
             <BrowseHeader />
             <Video />
             <VideoDetail />
