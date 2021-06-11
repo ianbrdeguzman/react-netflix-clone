@@ -6,6 +6,7 @@ import Register from './pages/register/Register';
 import Profile from './pages/profile/Profile';
 import Browse from './pages/browse/Browse';
 import Title from './pages/title/Title';
+import MyList from './pages/mylist/MyList';
 import {
     BrowserRouter as Router,
     Route,
@@ -39,6 +40,9 @@ const App = () => {
                 <Route path='/register' component={Register} />
                 <Route path='/profile'>
                     {!user ? <Redirect to='/' /> : <Profile />}
+                </Route>
+                <Route path='/browse/my-list'>
+                    {!user ? <Redirect to='/' /> : <MyList />}
                 </Route>
                 <Route path='/browse'>
                     {!user ? <Redirect to='/' /> : <Browse />}
