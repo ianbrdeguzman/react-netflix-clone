@@ -12,7 +12,7 @@ export const Header = styled.header`
     top: 0;
     left: 0;
     z-index: 100;
-    background-color: ${(props) => props.show === true && 'black'};
+    background-color: ${(props) => props.show === true && '#141414'};
     transition: background-color 1s ease;
     @media (min-width: 900px) {
         height: 68px;
@@ -51,10 +51,51 @@ export const Navbar = styled.nav`
     }
 `;
 
+export const Form = styled.form`
+    margin: 0 0.5rem 0 auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 32px;
+    overflow: hidden;
+    transition: width 0.5s ease;
+
+    &:focus-within {
+        width: 200px;
+        border: 1px solid #ffffff;
+        background-color: #000000;
+        input {
+            cursor: initial;
+            opacity: 1;
+        }
+    }
+
+    button {
+        background-color: transparent;
+        font-size: 20px;
+        position: absolute;
+        top: 50%;
+        left: 0.4rem;
+        transform: translateY(-40%);
+    }
+
+    input {
+        opacity: 0;
+        outline: none;
+        border: none;
+        color: #ffffff;
+        padding: 0.5rem 0.5rem 0.5rem 2rem;
+        background-color: transparent;
+        z-index: 1;
+        cursor: pointer;
+    }
+`;
+
 export const Avatar = styled.button`
     width: 32px;
     height: 32px;
     border-radius: 0.2rem;
+    background-color: transparent;
     overflow: hidden;
 `;
 
