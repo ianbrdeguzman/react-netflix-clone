@@ -6,6 +6,7 @@ import youtubeIdSlice from './slices/youtubeIdSlice';
 import relatedVideosSlice from './slices/relatedVideosSlice';
 import videoCreditSlice from './slices/videoCreditSlice';
 import myListSlice from './slices/myListSlice';
+import searchVideosSlice from './slices/searchVideosSlice';
 
 export default configureStore({
     reducer: {
@@ -16,5 +17,6 @@ export default configureStore({
         relatedVideos: relatedVideosSlice,
         videoCredit: videoCreditSlice,
         myList: myListSlice,
+        searchVideos: searchVideosSlice,
     },
 });

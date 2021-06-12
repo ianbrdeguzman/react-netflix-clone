@@ -45,7 +45,7 @@ const Banner = () => {
             if (isMounted && data.results) {
                 setMovie(
                     data.results[
-                        Math.floor(Math.random() * data.results.length - 1)
+                        Math.floor(Math.random() * data.results.length - 1) + 1
                     ]
                 );
             }
@@ -104,7 +104,11 @@ const Banner = () => {
                             </Loader>
                         </AddToListButton>
                     ) : isAdded ? (
-                        <AddToListButton disabled>Added</AddToListButton>
+                        <AddToListButton
+                            onClick={() => history.push('/browse/my-list')}
+                        >
+                            My List
+                        </AddToListButton>
                     ) : (
                         <AddToListButton onClick={handleAddToMyListOnClick}>
                             <AiOutlinePlus />
