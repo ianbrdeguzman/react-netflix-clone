@@ -1,6 +1,5 @@
 import React from 'react';
 import { useHistory } from 'react-router';
-import Header from '../../components/header/Header';
 import {
     ProfileSection,
     ProfileContainer,
@@ -9,6 +8,7 @@ import {
     ImageContainer,
 } from './profileStyles';
 import { useSelector } from 'react-redux';
+import BrowseHeader from '../../components/header/BrowseHeader';
 
 const Profile = () => {
     const history = useHistory();
@@ -20,7 +20,7 @@ const Profile = () => {
 
     return (
         <ProfileSection>
-            <Header login />
+            <BrowseHeader profile />
             <ProfileContainer>
                 <ProfileContent>
                     <h1>Whos watching?</h1>

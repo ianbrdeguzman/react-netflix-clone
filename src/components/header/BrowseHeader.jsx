@@ -5,7 +5,7 @@ import { auth } from '../../helpers/firebase';
 import { useDispatch } from 'react-redux';
 import { signout } from '../../redux/slices/userLoginSlice';
 
-const BrowseHeader = () => {
+const BrowseHeader = ({ profile }) => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [show, setShow] = useState(false);
@@ -43,7 +43,13 @@ const BrowseHeader = () => {
         };
     }, []);
 
-    return (
+    return profile ? (
+        <Header show={show} onMouseLeave={handleOnMouseLeave}>
+            <Logo to='/browse'>
+                <img src='/images/netflix-logo.png' alt='logo' />
+            </Logo>
+        </Header>
+    ) : (
         <Header show={show} onMouseLeave={handleOnMouseLeave}>
             <Logo to='/browse'>
                 <img src='/images/netflix-logo.png' alt='logo' />
