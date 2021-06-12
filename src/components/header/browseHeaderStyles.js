@@ -64,23 +64,22 @@ export const Avatar = styled.button`
 export const DropDown = styled.div`
     font-size: 14px;
     min-width: 160px;
-    padding: 0 0.5rem;
     background-color: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     position: absolute;
-    top: 41px;
+    top: 3rem;
     right: 2rem;
-    border-top: 3px solid #ffffff;
 
     &::after {
         content: '';
         width: 0;
         height: 0;
-        border-left: 1rem solid transparent;
-        border-right: 1rem solid transparent;
-        border-bottom: 1rem solid white;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        border-bottom: 0.5rem solid white;
         position: absolute;
-        top: -1rem;
-        right: 0rem;
+        top: -0.6rem;
+        right: 0.5rem;
     }
 
     @media (min-width: 900px) {
@@ -90,14 +89,36 @@ export const DropDown = styled.div`
     ul {
         list-style: none;
         li {
-            padding: 0.5rem 0;
+            padding: 0 0.5rem 0.5rem 0.5rem;
             cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
             &:hover {
                 text-decoration: underline;
             }
+            img {
+                width: 32px;
+                height: 32px;
+                border-radius: 0.2rem;
+            }
+            span {
+                flex: 1;
+                margin-left: 0.5rem;
+            }
         }
         li:first-child {
-            border-bottom: 1px solid #ffffff;
+            font-weight: normal;
+            padding: 0.5rem;
+        }
+        li:nth-child(2) {
+            font-weight: normal;
+            padding: 0 0.5rem 0.5rem 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        li:nth-child(3) {
+            padding: 0.5rem;
         }
     }
 `;

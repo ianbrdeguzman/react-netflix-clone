@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import { Header, Logo, Navbar, Avatar, DropDown } from './browseHeaderStyles';
 import { auth } from '../../helpers/firebase';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../../redux/slices/userLoginSlice';
 
 const BrowseHeader = ({ profile }) => {
@@ -11,20 +11,14 @@ const BrowseHeader = ({ profile }) => {
     const [show, setShow] = useState(false);
     const [showDropDown, setShowDropDown] = useState(false);
 
+    const { user } = useSelector((state) => state.userLogin);
+
     const showBackground = () => {
         if (window.scrollY > 1) {
             setShow(true);
         } else {
             setShow(false);
         }
-    };
-
-    const handleOnMouseOver = () => {
-        setShowDropDown(true);
-    };
-
-    const handleOnMouseLeave = () => {
-        setShowDropDown(false);
     };
 
     const handleSignOutOnClick = () => {
@@ -44,13 +38,13 @@ const BrowseHeader = ({ profile }) => {
     }, []);
 
     return profile ? (
-        <Header show={show} onMouseLeave={handleOnMouseLeave}>
+        <Header show={show} onMouseLeave={() => setShowDropDown(false)}>
             <Logo to='/browse'>
                 <img src='/images/netflix-logo.png' alt='logo' />
             </Logo>
         </Header>
     ) : (
-        <Header show={show} onMouseLeave={handleOnMouseLeave}>
+        <Header show={show} onMouseLeave={() => setShowDropDown(false)}>
             <Logo to='/browse'>
                 <img src='/images/netflix-logo.png' alt='logo' />
             </Logo>
@@ -61,13 +55,19 @@ const BrowseHeader = ({ profile }) => {
                     </li>
                 </ul>
             </Navbar>
-            <Avatar onMouseOver={handleOnMouseOver}>
+            <Avatar onMouseOver={() => setShowDropDown(true)}>
                 <img src='/images/profile.png' alt='profile' />
             </Avatar>
             {showDropDown && (
                 <DropDown>
                     <ul>
-                        <li onClick={handleProfileOnClick}>Profiles</li>
+                        <li onClick={handleProfileOnClick}>
+                            <img src='/images/profile.png' alt='avatar' />
+                            <span>{JSON.parse(user).displayName}</span>
+                        </li>
+                        <li onClick={handleProfileOnClick}>Manage Profile</li>
+                        <li>Account</li>
+                        <li>Help Center</li>
                         <li onClick={handleSignOutOnClick}>
                             Sign out of Netflix
                         </li>
