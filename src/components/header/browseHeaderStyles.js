@@ -22,13 +22,10 @@ export const Header = styled.header`
 `;
 
 export const Logo = styled(Link)`
-    width: 84px;
-    height: 5vw;
+    width: 63px;
+    margin-top: 0.3rem;
     max-height: 31px;
 
-    @media (min-width: 600px) {
-        width: 63px;
-    }
     @media (min-width: 900px) {
         width: 92px;
         margin-right: 1rem;

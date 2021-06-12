@@ -4,7 +4,7 @@ import { RowContainer, RowContent, CardContainer } from './rowStyles';
 import axios from '../../helpers/axios';
 
 const Row = ({ title, url, isLarge }) => {
-    const [movies, setMovies] = useState([]);
+    const [videos, setVideos] = useState([]);
 
     useEffect(() => {
         let isMounted = true;
@@ -14,7 +14,7 @@ const Row = ({ title, url, isLarge }) => {
                 data: { results },
             } = await axios.get(url);
             if (isMounted) {
-                setMovies(results);
+                setVideos(results);
             }
         };
         fetchData();
@@ -28,15 +28,15 @@ const Row = ({ title, url, isLarge }) => {
             <h2>{title}</h2>
             <RowContent>
                 <CardContainer>
-                    {movies
+                    {videos
                         .filter(
-                            (movie) => movie.poster_path && movie.backdrop_path
+                            (video) => video.poster_path && video.backdrop_path
                         )
-                        .map((movie) => {
+                        .map((video) => {
                             return (
                                 <Card
-                                    key={movie.id}
-                                    {...movie}
+                                    key={video.id}
+                                    {...video}
                                     isLarge={isLarge}
                                 />
                             );

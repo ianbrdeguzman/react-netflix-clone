@@ -30,6 +30,17 @@ export const myListSlice = createSlice({
             state.loading = false;
             state.error = action.payload;
         },
+        removeFromMyListRequest: (state) => {
+            state.loading = true;
+        },
+        removeFromMyListSuccess: (state, action) => {
+            state.loading = false;
+            state.myList = action.payload;
+        },
+        removeFromMyListFail: (state, action) => {
+            state.loading = false;
+            state.error = action.payload;
+        },
     },
 });
 
@@ -40,6 +51,9 @@ export const {
     getMyListRequest,
     getMyListSuccess,
     getMyListFail,
+    removeFromMyListRequest,
+    removeFromMyListSuccess,
+    removeFromMyListFail,
 } = myListSlice.actions;
 
 export default myListSlice.reducer;
