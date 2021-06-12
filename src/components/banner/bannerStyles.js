@@ -48,6 +48,7 @@ export const BannerTitle = styled.h2`
 `;
 
 export const BannerOverview = styled.div`
+    color: #e5e5e5;
     width: 50vw;
     font-size: 9px;
     text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.5);

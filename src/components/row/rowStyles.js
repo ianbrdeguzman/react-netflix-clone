@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const RowContainer = styled.div`
+    color: #e5e5e5;
     margin-bottom: 1rem;
     padding: 0 2rem;
     display: flex;
@@ -13,15 +14,14 @@ export const RowContainer = styled.div`
     h2 {
         font-size: 12px;
         margin-bottom: 1rem;
-        @media (min-width: 600px) {
-            font-size: 1vw;
+        @media (min-width: 900px) {
+            font-size: 1.4vw;
         }
     }
 `;
 
 export const RowContent = styled.div`
     width: 100vw;
-    color: #e5e5e5;
     overflow-x: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
