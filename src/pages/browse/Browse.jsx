@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import BrowseHeader from '../../components/header/BrowseHeader';
 import Banner from '../../components/banner/Banner';
 import Row from '../../components/row/Row';
-import Footer from '../../components/footer/Footer';
 import { BrowseSection } from './browseStyles';
 import request from '../../helpers/request';
 import { useDispatch, useSelector } from 'react-redux';
@@ -36,7 +34,6 @@ const Browse = () => {
 
     return (
         <BrowseSection>
-            <BrowseHeader />
             <Banner />
             <Row title='Trending Now' url={request.fetchTrending} />
             <Row
@@ -50,7 +47,6 @@ const Browse = () => {
             <Row title='Horror Movies' url={request.fetchHorrorMovies} />
             <Row title='Romance Movies' url={request.fetchRomanceMovies} />
             <Row title='Documentaries' url={request.fetchDocumentaries} />
-            <Footer />
         </BrowseSection>
     );
 };

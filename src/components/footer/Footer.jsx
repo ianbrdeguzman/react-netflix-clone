@@ -2,9 +2,9 @@ import React from 'react';
 import { data } from './footerData';
 import { StyledFooter, FooterContent, LinksContainer } from './footerStyles';
 
-const Footer = ({ signin }) => {
+const Footer = ({ signin, browse }) => {
     return (
-        <StyledFooter signin={signin}>
+        <StyledFooter signin={signin} browse={browse}>
             <FooterContent>
                 <h3>
                     Questions? Call{' '}

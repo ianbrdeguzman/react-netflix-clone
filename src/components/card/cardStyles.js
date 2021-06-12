@@ -4,6 +4,7 @@ export const CardStyle = styled.div`
     min-width: 160px;
     min-height: ${(props) => (props.isLarge ? 'auto' : '90px')};
     overflow: hidden;
+    border-radius: 0.2rem;
     margin-right: 0.2rem;
 
     @media (min-width: 600px) {

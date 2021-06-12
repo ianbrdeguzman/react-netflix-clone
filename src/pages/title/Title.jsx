@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { TitleSection } from './titleStyles';
-import BrowseHeader from '../../components/header/BrowseHeader';
 import Video from '../../components/video/Video';
 import VideoDetail from '../../components/videodetails/VideoDetail';
 import RelatedVideos from '../../components/relatedvideos/RelatedVideos';
@@ -96,7 +95,6 @@ const Title = () => {
 
     return (
         <TitleSection>
-            <BrowseHeader />
             <Video />
             <VideoDetail />
             <RelatedVideos />
