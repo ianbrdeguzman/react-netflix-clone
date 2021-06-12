@@ -19,7 +19,7 @@ const RelatedVideos = () => {
     const dispatch = useDispatch();
     const { loading, videos } = useSelector((state) => state.relatedVideos);
     const {
-        video: { title },
+        video: { name, original_name },
     } = useSelector((state) => state.videoDetail);
 
     const url =
@@ -44,7 +44,7 @@ const RelatedVideos = () => {
 
     return (
         <RelatedVideosSection>
-            <h2>More like {title}</h2>
+            <h2>More like {name || original_name}</h2>
             <RelatedVideosContent>
                 {loading
                     ? [...new Array(20)].map((skeleton, i) => {

@@ -13,4 +13,5 @@ export const StyledLoader = styled.div`
     display: flex;
     justify-content: center;
     animation: ${rotate} 1s linear infinite;
+    z-index: 1;
 `;
