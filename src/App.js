@@ -7,6 +7,7 @@ import Profile from './pages/profile/Profile';
 import Browse from './pages/browse/Browse';
 import Title from './pages/title/Title';
 import MyList from './pages/mylist/MyList';
+import Layout from './components/layout/Layout';
 import {
     BrowserRouter as Router,
     Route,
@@ -42,13 +43,31 @@ const App = () => {
                     {!user ? <Redirect to='/' /> : <Profile />}
                 </Route>
                 <Route path='/browse/my-list'>
-                    {!user ? <Redirect to='/' /> : <MyList />}
+                    {!user ? (
+                        <Redirect to='/' />
+                    ) : (
+                        <Layout browse>
+                            <MyList />
+                        </Layout>
+                    )}
                 </Route>
                 <Route path='/browse'>
-                    {!user ? <Redirect to='/' /> : <Browse />}
+                    {!user ? (
+                        <Redirect to='/' />
+                    ) : (
+                        <Layout browse>
+                            <Browse />
+                        </Layout>
+                    )}
                 </Route>
                 <Route path='/title/:id/:type'>
-                    {!user ? <Redirect to='/' /> : <Title />}
+                    {!user ? (
+                        <Redirect to='/' />
+                    ) : (
+                        <Layout browse>
+                            <Title />
+                        </Layout>
+                    )}
                 </Route>
                 <Route exact path='/' component={Home} />
                 <Route path='/*' component={Home} />
