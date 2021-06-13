@@ -17,6 +17,7 @@ import {
 import { signinSuccess } from './redux/slices/userLoginSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { auth } from './helpers/firebase';
+import Search from './pages/search/Search';
 
 const App = () => {
     const dispatch = useDispatch();
@@ -66,6 +67,15 @@ const App = () => {
                     ) : (
                         <Layout browse>
                             <Title />
+                        </Layout>
+                    )}
+                </Route>
+                <Route path='/search'>
+                    {!user ? (
+                        <Redirect to='/' />
+                    ) : (
+                        <Layout browse>
+                            <Search />
                         </Layout>
                     )}
                 </Route>
