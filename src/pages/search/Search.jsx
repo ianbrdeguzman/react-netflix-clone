@@ -55,7 +55,7 @@ const Search = () => {
                 {videos
                     ?.filter((video) => video.backdrop_path)
                     .map((video) => {
-                        return <Card key={video.id} {...video} />;
+                        return <Card key={video.id} {...video} video={video} />;
                     })}
             </SearchContent>
         </SearchSection>
