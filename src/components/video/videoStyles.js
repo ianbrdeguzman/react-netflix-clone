@@ -12,14 +12,14 @@ export const CroppingDiv = styled.div`
 
 export const DivToCrop = styled.div`
     overflow: hidden;
-    margin-top: -50%;
-    margin-bottom: -49%;
+    margin-top: -52.5%;
+    margin-bottom: -52.5%;
 `;
 
 export const PlayerWrapper = styled.div`
     position: relative;
     overflow: hidden;
-    padding-top: 150%;
+    padding-top: 155%;
 `;
 
 export const VideoPlayer = styled.iframe`
