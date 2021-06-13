@@ -65,7 +65,7 @@ const BrowseHeader = ({ profile }) => {
                 (movie) => movie.media_type === 'movie'
             );
             dispatch(searchVideosSuccess(movies));
-            // history.push(`/search?q=${search}`);
+            history.push(`/search?q=${search}`);
         } catch (error) {
             dispatch(searchVideosFail(error.message));
         }
