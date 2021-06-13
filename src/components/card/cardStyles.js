@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { AiOutlineCloseCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 
 export const CardStyle = styled.div`
     min-width: 160px;
@@ -40,6 +40,19 @@ export const LoadContainer = styled.div`
 `;
 
 export const Remove = styled(AiOutlineCloseCircle)`
+    font-size: 24px;
+    color: #e5e5e5;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+    cursor: pointer;
+    &:hover {
+        filter: brightness(1.5);
+    }
+`;
+
+export const Add = styled(AiOutlinePlusCircle)`
     font-size: 24px;
     color: #e5e5e5;
     position: absolute;

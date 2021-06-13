@@ -38,6 +38,7 @@ const Row = ({ title, url, isLarge }) => {
                                     key={video.id}
                                     {...video}
                                     isLarge={isLarge}
+                                    video={video}
                                 />
                             );
                         })}

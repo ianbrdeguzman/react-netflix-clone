@@ -11,7 +11,12 @@ const MyList = () => {
             <MyListContent>
                 {myList.map((video) => {
                     return (
-                        <Card key={video.id} {...video} myList video={video} />
+                        <Card
+                            key={video.id}
+                            {...video}
+                            inMyList
+                            video={video}
+                        />
                     );
                 })}
             </MyListContent>
