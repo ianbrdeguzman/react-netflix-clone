@@ -48,6 +48,6 @@ export const Remove = styled(AiOutlineCloseCircle)`
     z-index: 1;
     cursor: pointer;
     &:hover {
-        filter: brightness(0.8);
+        filter: brightness(1.5);
     }
 `;

@@ -26,7 +26,7 @@ const BrowseHeader = ({ profile }) => {
 
     const [show, setShow] = useState(false);
     const [showDropDown, setShowDropDown] = useState(false);
-    const [showNav, setShowNav] = useState(false);
+    const [showNav, setShowNav] = useState(true);
 
     const { user } = useSelector((state) => state.userLogin);
 
@@ -74,6 +74,7 @@ const BrowseHeader = ({ profile }) => {
     useEffect(() => {
         window.addEventListener('scroll', showBackground);
         window.addEventListener('resize', showNavbar);
+        showNavbar();
         return () => {
             window.removeEventListener('scroll', showBackground);
             window.removeEventListener('resize', showNavbar);
