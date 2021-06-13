@@ -15,7 +15,9 @@ const Search = () => {
     const dispatch = useDispatch();
     const { videos } = useSelector((state) => state.searchVideos);
 
-    const titles = videos.map((video) => video.title);
+    const titles = videos
+        .filter((movie) => movie.media_type === 'movie')
+        .map((video) => video.title);
 
     const handleOnClick = async (title) => {
         dispatch(searchVideosRequest());
