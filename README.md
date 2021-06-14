@@ -1,6 +1,6 @@
 # React Netflix Clone
 
-Check it out [here!](https://netflix-clone-68612.web.app/browse)
+Check it out [here!](https://netflix-clone-68612.web.app)
 
 ## Created using:
 
