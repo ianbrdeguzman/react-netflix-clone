@@ -32,8 +32,6 @@ export const HeroContent = styled.div`
         text-align: center;
         p:first-child {
             padding: 1rem 0 0 0;
-            font-weight: 600;
-            margin-bottom: 0;
         }
 
         @media (min-width: 600px) {
